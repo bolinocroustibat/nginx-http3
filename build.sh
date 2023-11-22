@@ -48,7 +48,6 @@ auto/configure --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx \
 --with-http_mp4_module \
 --with-http_random_index_module \
 --with-http_secure_link_module \
---with-mail_ssl_module \
 --with-stream_ssl_module \
 --with-stream_ssl_preread_module \
 --with-stream_realip_module \
