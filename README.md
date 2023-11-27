@@ -16,8 +16,6 @@ List of added build flags when compared to [nginx-quictls](https://github.com/on
 --with-http_gunzip_module \
 --with-http_gzip_static_module \
 --with-http_mp4_module \
---with-http_random_index_module \
---with-http_secure_link_module \
 --with-stream_ssl_module \
 --with-stream_ssl_preread_module \
 --with-stream_realip_module \
