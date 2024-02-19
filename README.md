@@ -36,6 +36,10 @@ List of removed build flags when compared to [nginx-quictls](https://github.com/
 --without-http_upstream_random_module --without-http_upstream_zone_module \
 ```
 
+## Distribution switch notice
+
+According to [Debian Wiki](https://wiki.debian.org/DebianReleases), Debian bullseye will reach its end-of-life date in July 2024. Therefore, the project will switch to Debian bookworm as the packaging environment in June 2024.
+
 ## Compare with nginx-http3
 
 - Some OpenSSL-only directives are supported, e.g. `ssl_conf_command`
