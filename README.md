@@ -1,6 +1,6 @@
 # nginx with HTTP/3, with QuicTLS and ngx_http_access_module
 
-Similar to [nginx-quictls](https://github.com/ononoki1/nginx-quictls), except that it uses more modules e.g. `ngx_http_access_module` (added with the `--with-http_gzip_static_module` build flag, see https://stackoverflow.com/questions/46236349/do-i-have-to-turn-on-ngx-http-access-module).
+Similar to [nginx-quictls](https://github.com/ononoki1/nginx-quictls) (which is itself similar to [nginx-http3](https://github.com/ononoki1/nginx-http3), except that it only provides a single binary `nginx` instead of Debian package), except that it uses more modules e.g. `ngx_http_access_module` (added with the `--with-http_gzip_static_module` build flag, see https://stackoverflow.com/questions/46236349/do-i-have-to-turn-on-ngx-http-access-module).
 
 List of added build flags when compared to [nginx-quictls](https://github.com/ononoki1/nginx-quictls):
 
@@ -40,14 +40,11 @@ List of removed build flags when compared to [nginx-quictls](https://github.com/
 
 According to [Debian Wiki](https://wiki.debian.org/DebianReleases), Debian bullseye will reach its end-of-life date in July 2024. Therefore, the project will switch to Debian bookworm as the packaging environment in June 2024.
 
-## Compare with nginx-http3
-
-- Some OpenSSL-only directives are supported, e.g. `ssl_conf_command`
-- OCSP stapling can be enabled directly by using `ssl_stapling on; ssl_stapling_verify on;`
+**Update:** already switched on June 25th.
 
 ## Usage
 
-First, install NGINX from [nginx-http3](https://github.com/ononoki1/nginx-http3), [Debian's official package](https://packages.debian.org/bullseye/nginx) or [NGINX's official package](https://nginx.org/en/linux_packages.html#Debian). Then run following commands.
+First, install NGINX from [nginx-http3](https://github.com/ononoki1/nginx-http3), [Debian's official package](https://packages.debian.org/bookworm/nginx) or [NGINX's official package](https://nginx.org/en/linux_packages.html#Debian). Then run following commands.
 
 ```bash
 sudo systemctl stop nginx
