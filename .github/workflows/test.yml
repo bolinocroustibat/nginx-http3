@@ -1,4 +1,5 @@
 name: test
+
 on:
   push:
     branches-ignore: [main]
@@ -6,15 +7,19 @@ on:
       - "**.sh"
       - Dockerfile
   workflow_dispatch:
+
 jobs:
   test:
     runs-on: ubuntu-latest
     name: test
     steps:
+
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Build
         uses: ./
+
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
