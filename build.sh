@@ -24,31 +24,38 @@ git clone --depth 1 --recursive https://github.com/openresty/headers-more-nginx-
 echo Build nginx.
 cd ..
 auto/configure --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx \
---add-module=modules/ngx_brotli --add-module=modules/ngx_http_geoip2_module \
---add-module=modules/headers-more-nginx-module --conf-path=/etc/nginx/nginx.conf \
---error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log \
---pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock \
+--add-module=modules/ngx_brotli \
+--add-module=modules/ngx_http_geoip2_module \
+--add-module=modules/headers-more-nginx-module \
+--conf-path=/etc/nginx/nginx.conf \
+--error-log-path=/var/log/nginx/error.log \
+--lock-path=/var/run/nginx.lock \
+--pid-path=/var/run/nginx.pid \
 --http-client-body-temp-path=/var/cache/nginx/client_temp \
---http-proxy-temp-path=/var/cache/nginx/proxy_temp \
 --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp \
+--http-log-path=/var/log/nginx/access.log \
+--http-proxy-temp-path=/var/cache/nginx/proxy_temp \
 --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp \
 --user=www-data --group=www-data \
---with-file-aio --with-threads --with-pcre-jit --with-http_sub_module \
---with-http_ssl_module --with-http_v2_module --with-http_v3_module \
---with-http_stub_status_module \
---with-http_realip_module \
+--with-file-aio \
+--with-http_addition_module \
 --with-http_auth_request_module \
 --with-http_dav_module \
---with-http_slice_module \
---with-threads \
---with-http_addition_module \
 --with-http_flv_module \
 --with-http_gunzip_module \
 --with-http_gzip_static_module \
 --with-http_mp4_module \
+--with-http_realip_module \
+--with-http_ssl_module \
+--with-http_stub_status_module \
+--with-http_sub_module \
+--with-http_v2_module \
+--with-http_v3_module \
+--with-pcre-jit \
+--with-stream_realip_module \
 --with-stream_ssl_module \
 --with-stream_ssl_preread_module \
---with-stream_realip_module \
+--with-threads \
 --with-openssl=modules/openssl > /dev/null 2>&1
 make -j$(nproc) > /dev/null 2>&1
 cp objs/nginx ..
