@@ -14,27 +14,27 @@ jobs:
     name: build
     steps:
 
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build
+      - name: Build project
         uses: ./
 
-      - name: Upload
+      - name: Upload built artifacts
         uses: actions/upload-artifact@v4
         with:
           name: v8.${{ env.minor }}.${{ env.patch }}
           path: /home/runner/work/_temp/_github_home/nginx
 
-      - name: Update
+      - name: Commit changes
         if: ${{ env.change }}
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Update hash and version
 
-      - name: Release
+      - name: Create GitHub release
         if: ${{ env.change }}
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           files: /home/runner/work/_temp/_github_home/nginx
           body: "Size: ${{ env.hash }}"

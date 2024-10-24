@@ -14,13 +14,13 @@ jobs:
     name: test
     steps:
 
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build
+      - name: Build project
         uses: ./
 
-      - name: Upload
+      - name: Upload built artifacts
         uses: actions/upload-artifact@v4
         with:
           name: v8.${{ env.minor }}.${{ env.patch }}
